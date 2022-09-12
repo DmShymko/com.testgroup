@@ -1,0 +1,27 @@
+System.setProperty("webdriver.chrome.driver","C:\\Users\\dmitrij.shymko\\IdeaProjects\\com.testgroup\\drivers\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver(); //create webdriver
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); //ожидание 10 секунд
+
+        driver.manage().window().maximize(); //configuration window to the maximized size
+        driver.manage().window().setSize(new Dimension(900, 500)); //configuration window size
+
+        driver.get("http://portal.develop.test.librus.local/szkola"); //open the page
+
+          WebElement link2 = driver.findElement(By.partialLinkText("Spring"));//search link for part text and create object
+          WebElement description = driver.findElement(By.name("description"));// search element for name and create object
+          WebElement ID = driver.findElement(By.id("")); //search element for ID and create object
+          WebElement input = driver.findElement((By.tagName("input")));
+          WebElement element = driver.findElement(By.cssSelector("div#Simplsearch input#SearchButton"));
+          WebElement logo = driver.findElement(By.xpath("//div[@id='UQ0_62']"));
+          driver.findElement(By.xpath("//*[@id='UQ0_3']/div[1]/h1/div/div[2]/div/a")).click();
+
+        driver.navigate().to("https://portal.develop.test.librus.local/szkola/synergia/loguj"); //open the next page
+        driver.navigate().back(); //return to the back page
+        driver.navigate().forward(); //go to the next page
+        driver.navigate().refresh(); // refresh the page
+
+        System.out.println(driver.getTitle()); //show title
+        System.out.println(driver.getCurrentUrl()); //show link
+
+        driver.quit(); // exit browser
